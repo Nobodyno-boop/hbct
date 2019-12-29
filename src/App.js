@@ -50,7 +50,6 @@ class App {
 
         let m= Menu.buildFromTemplate(tmp)
         Menu.setApplicationMenu(m)
-
         // FLASH    
         let pluginName
         switch (process.platform) {
@@ -65,9 +64,9 @@ class App {
                 break
         }
         //TODO: maybe support if flash is on computer
+        let p1 = app.getPath('pepperFlashSystemPlugin');
 
-        var p2 = path.join(process.cwd(), this.getURL("app/flash/"+pluginName))
-        app.commandLine.appendSwitch('ppapi-flash-path', p2)
+        app.commandLine.appendSwitch('ppapi-flash-path', p1)
         app.commandLine.appendSwitch('ppapi-flash-version', '32.0.0.303');
 
         this.getApp().on("ready", () => {
@@ -194,7 +193,7 @@ class App {
     }
 
     getApplicationPath() {
-        return path.join(process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : process.env.HOME + "/.local/share"), "\\", manifest.name, "\\")
+        return path.join(process.env['ProgramFiles'] || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : process.env.HOME + "/.local/share"), "\\", manifest.name, "\\")
     }
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "HabboCity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "A non-oficiel client windows",
   "main": "src/main.js",
@@ -20,6 +20,9 @@
       "ressources/**/*",
       "app/**/*"
     ],
+    "extraResources":[
+      "flash/*"
+    ],
     "win": {
       "target": "nsis",
       "icon": "resources/icon.ico"
@@ -34,7 +37,7 @@
       {
         "provider": "github",
         "owner": "Poulpinounette",
-        "repo": "hcty"
+        "repo": "hbct"
       }
     ],
     "directories": {
