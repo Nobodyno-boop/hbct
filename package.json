@@ -1,0 +1,51 @@
+{
+  "name": "HabboCity",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A non-oficiel client windows",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "env DEV=true electron ./src/main.js",
+    "build": "electron-builder",
+    "pack": "electron-builder",
+    "publish": "rm -rf release/ && node publish.js"
+  },
+  "keywords": [],
+  "author": "Poulpinounette",
+  "license": "ISC",
+  "build": {
+    "appId": "com.poulpi.habbocity",
+    "files": [
+      "src/**/*",
+      "ressources/**/*",
+      "app/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Poulpinounette",
+        "repo": "hcty"
+      }
+    ],
+    "directories": {
+      "output": "release/"
+    }
+  },
+  "devDependencies": {
+    "electron": "^6.0.7",
+    "electron-builder": "^21.2.0"
+  },
+  "dependencies": {
+    "electron-updater": "^4.2.0"
+  }
+}
